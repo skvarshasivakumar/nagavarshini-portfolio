@@ -2,39 +2,39 @@
   id="hero"
   class="grain relative flex min-h-screen flex-col justify-center overflow-hidden px-6 pt-20 md:px-16"
 >
-  <div class="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-[var(--color-moss)]/10 blur-3xl"></div>
-  <div class="pointer-events-none absolute -left-16 bottom-0 h-72 w-72 rounded-full bg-[var(--color-terracotta)]/10 blur-3xl"></div>
+  <div class="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-moss/20 blur-3xl"></div>
+  <div class="pointer-events-none absolute -left-16 bottom-0 h-72 w-72 rounded-full bg-harvest/10 blur-3xl"></div>
 
-  <p class="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.3em] text-[var(--color-moss)] dark:text-[var(--color-terracotta)]">
+  <p class="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.3em] text-harvest">
     Field notes · 2026
   </p>
 
-  <h1 class="mt-4 max-w-3xl font-[family-name:var(--font-display)] text-5xl font-medium leading-[1.05] tracking-tight md:text-7xl">
+  <h1 class="mt-4 max-w-3xl font-[family-name:var(--font-display)] text-5xl font-medium leading-[1.05] tracking-tight text-bone md:text-7xl">
     {{ contact.name }}
   </h1>
 
-  <p class="mt-6 max-w-xl text-lg text-[var(--color-ink-soft)] dark:text-[var(--color-night-ink)]/80 md:text-xl">
-    <span class="underline-scribble text-[var(--color-ink)] dark:text-[var(--color-night-ink)]">Environmental engineer</span>
+  <p class="mt-6 max-w-xl text-lg text-ash md:text-xl">
+    <span class="underline-scribble text-bone">Environmental engineer</span>
     working on carbon MRV, life-cycle assessment, and ESG fieldwork.
   </p>
 
   <div class="mt-10 flex flex-wrap items-center gap-4">
     <a
       href="#projects"
-      class="rounded-full bg-[var(--color-moss)] px-6 py-3 text-sm font-medium text-[var(--color-paper)] transition-transform hover:-translate-y-0.5"
+      class="rounded-full bg-harvest px-6 py-3 text-sm font-medium text-peat transition-transform hover:-translate-y-0.5"
     >
       See the work
     </a>
     <a
       href="#contact"
-      class="rounded-full border border-[var(--color-ink)]/20 dark:border-[var(--color-night-ink)]/25 px-6 py-3 text-sm font-medium transition-colors hover:border-[var(--color-terracotta)] hover:text-[var(--color-terracotta)]"
+      class="rounded-full border border-ash/30 px-6 py-3 text-sm font-medium text-bone transition-colors hover:border-fern hover:text-fern"
     >
       Get in touch
     </a>
   </div>
 
-  <a href="#about" class="mt-16 flex items-center gap-2 self-start font-[family-name:var(--font-mono)] text-xs text-[var(--color-ink-soft)] dark:text-[var(--color-night-ink)]/70">
-    <svg lucideArrowDown [size]="14" class="animate-bounce"></svg>
+  <a href="#about" class="mt-16 flex items-center gap-2 self-start font-[family-name:var(--font-mono)] text-xs text-ash">
+    <svg lucideArrowDown [size]="14" class="animate-bounce" aria-hidden="true"></svg>
     Scroll
   </a>
 </section>

@@ -1,17 +1,18 @@
 <header
-  class="fixed inset-x-0 top-0 z-50 flex items-center justify-between px-5 py-3 backdrop-blur-md bg-[var(--color-paper)]/80 dark:bg-[var(--color-night)]/80 border-b border-[var(--color-ink)]/10 dark:border-[var(--color-night-ink)]/10"
+  class="fixed inset-x-0 top-0 z-50 flex items-center justify-between px-5 py-3 backdrop-blur-md bg-peat/80 border-b border-ash/15"
 >
-  <a href="#hero" class="font-[family-name:var(--font-mono)] text-sm tracking-tight text-[var(--color-moss)] dark:text-[var(--color-terracotta)]">
-    NM<span class="text-[var(--color-terracotta)]">.</span>
+  <a href="#hero" class="font-[family-name:var(--font-mono)] text-sm tracking-tight text-bone">
+    NM<span class="text-harvest">.</span>
   </a>
 
-  <nav class="hidden md:flex items-center gap-1 font-[family-name:var(--font-mono)] text-xs uppercase tracking-wide">
+  <nav aria-label="Section" class="hidden md:flex items-center gap-1 font-[family-name:var(--font-mono)] text-xs uppercase tracking-wide">
     @for (section of sections; track section.id) {
       <a
         [href]="'#' + section.id"
+        [attr.aria-current]="activeSection() === section.id ? 'page' : null"
         class="px-3 py-1.5 rounded-full transition-colors"
-        [class.text-[var(--color-terracotta)]]="activeSection() === section.id"
-        [class.text-[var(--color-ink-soft)]]="activeSection() !== section.id"
+        [class.text-harvest]="activeSection() === section.id"
+        [class.text-ash]="activeSection() !== section.id"
       >
         {{ section.label }}
       </a>
@@ -23,21 +24,21 @@
       href="Nagavarshini_CV.pdf"
       target="_blank"
       rel="noopener"
-      class="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-[var(--color-ink)]/15 dark:border-[var(--color-night-ink)]/20 px-3 py-1.5 text-xs font-[family-name:var(--font-mono)] hover:border-[var(--color-terracotta)] hover:text-[var(--color-terracotta)] transition-colors"
+      class="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-ash/25 px-3 py-1.5 text-xs font-[family-name:var(--font-mono)] text-bone hover:border-fern hover:text-fern transition-colors"
     >
-      <svg lucideDownload [size]="14"></svg>
+      <svg lucideDownload [size]="14" aria-hidden="true"></svg>
       Résumé
     </a>
     <button
       type="button"
       (click)="toggleTheme()"
-      aria-label="Toggle dark mode"
-      class="grid h-8 w-8 place-items-center rounded-full border border-[var(--color-ink)]/15 dark:border-[var(--color-night-ink)]/20 hover:border-[var(--color-terracotta)] transition-colors"
+      [attr.aria-label]="isDark() ? 'Switch to light mode' : 'Switch to dark mode'"
+      class="grid h-8 w-8 place-items-center rounded-full border border-ash/25 text-bone hover:border-fern hover:text-fern transition-colors"
     >
       @if (isDark()) {
-        <svg lucideSun [size]="15"></svg>
+        <svg lucideSun [size]="15" aria-hidden="true"></svg>
       } @else {
-        <svg lucideMoon [size]="15"></svg>
+        <svg lucideMoon [size]="15" aria-hidden="true"></svg>
       }
     </button>
   </div>

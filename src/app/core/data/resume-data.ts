@@ -36,7 +36,7 @@ export const FOCUS_AREAS: FocusArea[] = [
     title: 'ESG & Carbon Markets',
     description:
       'Voluntary carbon market research, credit-eligibility screening, and workflow design for state-scale waste management programmes.',
-    icon: 'leaf',
+    icon: 'coins',
   },
   {
     title: 'Geospatial Analysis',

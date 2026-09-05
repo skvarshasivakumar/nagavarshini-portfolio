@@ -1,32 +1,33 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
-
 @theme {
-  /* Field notebook meets data lab — base palette */
-  --color-paper: #FAF8F3;
-  --color-paper-dim: #F1EDE3;
-  --color-ink: #1C1C1A;
-  --color-ink-soft: #4A4A46;
-  --color-moss: #3D5A45;
-  --color-moss-dark: #2A3F30;
-  --color-terracotta: #D96A45;
-  --color-terracotta-dark: #B8512F;
+  /* Base and neutrals — dark, earth-toned (default theme) */
+  --color-peat: #121710;
+  --color-bark: #1D2318;
+  --color-loam: #6B4E33;
+  --color-clay: #A67C52;
+  --color-bone: #EDE6D6;
 
-  /* Night field survey (dark mode) */
-  --color-night: #10160F;
-  --color-night-panel: #182018;
-  --color-night-ink: #E9E6DD;
+  /* Accents */
+  --color-moss: #2E4A2E;
+  --color-fern: #5C8A3E;
+  --color-laterite: #B4472E;
+  --color-harvest: #D9A441;
+  --color-ash: #8FA089;
 
-  /* Data ramp for charts (muted earth tones) */
-  --color-data-1: #3D5A45;
-  --color-data-2: #D96A45;
-  --color-data-3: #8C7A5B;
-  --color-data-4: #5B7A8C;
-
-  --font-display: "Bricolage Grotesque", "Clash Display", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* Light mode toggle — only base/surface/text/fern/laterite shift; loam,
+   clay, moss, harvest and ash hold across both themes. */
+[data-theme="light"] {
+  --color-peat: #EDE6D6;
+  --color-bark: #F5F0E4;
+  --color-bone: #121710;
+  --color-fern: #3F6B2C;
+  --color-laterite: #8C3520;
 }
 
 html {
@@ -34,27 +35,41 @@ html {
 }
 
 body {
-  background-color: var(--color-paper);
-  color: var(--color-ink);
+  background-color: var(--color-peat);
+  color: var(--color-bone);
   font-family: var(--font-body);
+  font-size: 16px;
 }
 
-:root[data-theme="dark"] body {
-  background-color: var(--color-night);
-  color: var(--color-night-ink);
+:focus-visible {
+  outline: 2px solid var(--color-harvest);
+  outline-offset: 2px;
 }
 
-/* Grain texture overlay — field-notebook paper feel */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 1. Grain texture overlay — CSS-only, 3% opacity */
 .grain::before {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.05;
-  mix-blend-mode: multiply;
+  opacity: 0.03;
+  mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 }
 
+/* 2. Hand-drawn underline strokes beneath section headings, in laterite */
 .underline-scribble {
   position: relative;
   display: inline-block;
@@ -66,8 +81,12 @@ body {
   right: -2%;
   bottom: -0.15em;
   height: 0.4em;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'><path d='M2 8 C 40 2, 70 11, 100 6 S 160 2, 198 7' fill='none' stroke='%23D96A45' stroke-width='4' stroke-linecap='round'/></svg>");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'><path d='M2 8 C 40 2, 70 11, 100 6 S 160 2, 198 7' fill='none' stroke='%23000' stroke-width='4' stroke-linecap='round'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'><path d='M2 8 C 40 2, 70 11, 100 6 S 160 2, 198 7' fill='none' stroke='%23000' stroke-width='4' stroke-linecap='round'/></svg>");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  background-color: var(--color-laterite);
   z-index: -1;
 }

@@ -10,10 +10,10 @@ interface CityLine {
 }
 
 const CITY_COLORS: Record<UhiRecord['city'], string> = {
-  Delhi: 'var(--color-data-1)',
-  Chennai: 'var(--color-data-2)',
-  Bangalore: 'var(--color-data-3)',
-  Jaipur: 'var(--color-data-4)',
+  Delhi: 'var(--color-harvest)',
+  Bangalore: 'var(--color-clay)',
+  Jaipur: 'var(--color-fern)',
+  Chennai: 'var(--color-laterite)',
 };
 
 const WIDTH = 640;

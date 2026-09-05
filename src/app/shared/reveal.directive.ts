@@ -14,6 +14,7 @@ export class RevealDirective implements AfterViewInit, OnDestroy {
 
   async ngAfterViewInit(): Promise<void> {
     if (!isPlatformBrowser(this.platformId)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const [{ gsap }, { ScrollTrigger }] = await Promise.all([import('gsap'), import('gsap/ScrollTrigger')]);
     gsap.registerPlugin(ScrollTrigger);

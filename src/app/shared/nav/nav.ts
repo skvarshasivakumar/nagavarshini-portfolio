@@ -27,7 +27,9 @@ export class NavComponent implements AfterViewInit, OnDestroy {
   ];
 
   readonly activeSection = signal<string>('about');
-  readonly isDark = signal<boolean>(false);
+  // Dark is the site's default identity (matches the CSS default with no
+  // data-theme attribute), so the toggle starts in the dark state.
+  readonly isDark = signal<boolean>(true);
 
   private observer?: IntersectionObserver;
 
@@ -35,11 +37,13 @@ export class NavComponent implements AfterViewInit, OnDestroy {
     if (!isPlatformBrowser(this.platformId)) return;
 
     try {
-      const stored = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      this.setDark(stored ? stored === 'dark' : prefersDark);
+      // Only switch to light if the viewer explicitly chose it before —
+      // no system-preference fallback, since dark is the designed default.
+      if (localStorage.getItem('theme') === 'light') {
+        this.setDark(false);
+      }
     } catch {
-      // localStorage unavailable — keep light default
+      // localStorage unavailable — keep the default dark theme
     }
 
     this.observer = new IntersectionObserver(
@@ -68,7 +72,11 @@ export class NavComponent implements AfterViewInit, OnDestroy {
 
   private setDark(dark: boolean): void {
     this.isDark.set(dark);
-    document.documentElement.dataset['theme'] = dark ? 'dark' : 'light';
+    if (dark) {
+      document.documentElement.removeAttribute('data-theme');
+    } else {
+      document.documentElement.dataset['theme'] = 'light';
+    }
     try {
       localStorage.setItem('theme', dark ? 'dark' : 'light');
     } catch {

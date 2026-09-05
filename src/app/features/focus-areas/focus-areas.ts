@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { LucideRecycle, LucideFlame, LucideLeaf, LucideMap } from '@lucide/angular';
+import { LucideRecycle, LucideFlame, LucideHandCoins, LucideMap } from '@lucide/angular';
 import { RevealDirective } from '../../shared/reveal.directive';
 import { FOCUS_AREAS } from '../../core/data/resume-data';
 
 @Component({
   selector: 'app-focus-areas',
   standalone: true,
-  imports: [LucideRecycle, LucideFlame, LucideLeaf, LucideMap, RevealDirective],
+  imports: [LucideRecycle, LucideFlame, LucideHandCoins, LucideMap, RevealDirective],
   templateUrl: './focus-areas.html',
 })
 export class FocusAreasComponent {

@@ -1,23 +1,23 @@
-<section id="experience" class="mx-auto max-w-4xl px-6 py-28 md:px-16">
-  <p class="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.3em] text-[var(--color-terracotta)]">
+<section id="experience" aria-labelledby="experience-heading" class="mx-auto max-w-4xl px-6 py-28 md:px-16">
+  <p class="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.3em] text-harvest">
     Experience
   </p>
-  <h2 class="mt-3 font-[family-name:var(--font-display)] text-3xl font-medium tracking-tight md:text-4xl">
+  <h2 id="experience-heading" class="underline-scribble mt-3 font-[family-name:var(--font-display)] text-3xl font-medium tracking-tight text-bone md:text-4xl">
     Where the field data came from
   </h2>
 
-  <ol class="mt-12 border-l border-[var(--color-ink)]/10 dark:border-[var(--color-night-ink)]/15">
+  <ol class="mt-12 border-l border-loam/60">
     @for (entry of entries; track entry.role + entry.org) {
       <li appReveal class="relative pb-10 pl-8 last:pb-0">
-        <span class="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-[var(--color-terracotta)]"></span>
-        <p class="font-[family-name:var(--font-mono)] text-xs uppercase tracking-wide text-[var(--color-ink-soft)] dark:text-[var(--color-night-ink)]/60">
+        <span class="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-harvest"></span>
+        <p class="font-[family-name:var(--font-mono)] text-xs uppercase tracking-wide text-ash">
           {{ entry.period }}
         </p>
-        <h3 class="mt-1 font-[family-name:var(--font-display)] text-lg font-medium">{{ entry.role }}</h3>
-        <p class="text-sm text-[var(--color-moss)] dark:text-[var(--color-terracotta)]">{{ entry.org }}</p>
+        <h3 class="mt-1 font-[family-name:var(--font-display)] text-lg font-medium text-bone">{{ entry.role }}</h3>
+        <p class="text-sm text-harvest">{{ entry.org }}</p>
         <ul class="mt-3 space-y-1.5">
           @for (bullet of entry.bullets; track bullet) {
-            <li class="text-sm leading-relaxed text-[var(--color-ink-soft)] dark:text-[var(--color-night-ink)]/80">
+            <li class="text-sm leading-relaxed text-ash">
               {{ bullet }}
             </li>
           }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RevealDirective } from '../../shared/reveal.directive';
-import { ACHIEVEMENTS, LANGUAGES } from '../../core/data/resume-data';
+import { ACHIEVEMENTS, CONTACT, LANGUAGES } from '../../core/data/resume-data';
 
 @Component({
   selector: 'app-about',
@@ -11,4 +11,5 @@ import { ACHIEVEMENTS, LANGUAGES } from '../../core/data/resume-data';
 export class AboutComponent {
   readonly achievements = ACHIEVEMENTS;
   readonly languages = LANGUAGES;
+  readonly contact = CONTACT;
 }
