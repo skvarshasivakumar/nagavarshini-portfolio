@@ -1,0 +1,87 @@
+<section id="education" class="bg-[var(--color-paper-dim)] dark:bg-[var(--color-night-panel)] px-6 py-28 md:px-16">
+  <div class="mx-auto max-w-5xl">
+    <p class="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.3em] text-[var(--color-terracotta)]">
+      Education &amp; credentials
+    </p>
+    <h2 class="mt-3 font-[family-name:var(--font-display)] text-3xl font-medium tracking-tight md:text-4xl">
+      Academic record
+    </h2>
+
+    <div appReveal class="mt-10 grid gap-5 md:grid-cols-2">
+      @for (entry of education; track entry.degree) {
+        <div class="rounded-2xl border border-[var(--color-ink)]/10 dark:border-[var(--color-night-ink)]/15 bg-[var(--color-paper)] dark:bg-[var(--color-night)] p-6">
+          <p class="font-[family-name:var(--font-mono)] text-xs uppercase tracking-wide text-[var(--color-ink-soft)] dark:text-[var(--color-night-ink)]/60">
+            {{ entry.period }}
+          </p>
+          <h3 class="mt-1 font-[family-name:var(--font-display)] text-lg font-medium">{{ entry.degree }}</h3>
+          <p class="text-sm text-[var(--color-moss)] dark:text-[var(--color-terracotta)]">{{ entry.institution }}</p>
+          @if (entry.detail) {
+            <p class="mt-2 text-sm text-[var(--color-ink-soft)] dark:text-[var(--color-night-ink)]/75">{{ entry.detail }}</p>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="mt-16 grid gap-10 md:grid-cols-2">
+      <div appReveal>
+        <h3 class="font-[family-name:var(--font-mono)] text-xs uppercase tracking-wide text-[var(--color-moss)] dark:text-[var(--color-terracotta)]">
+          Certifications
+        </h3>
+        <ul class="mt-4 space-y-3">
+          @for (cert of certifications; track cert.title) {
+            <li class="text-sm leading-relaxed">
+              <span class="text-[var(--color-ink)] dark:text-[var(--color-night-ink)]">{{ cert.title }}</span>
+              @if (cert.issuer) {
+                <span class="text-[var(--color-ink-soft)] dark:text-[var(--color-night-ink)]/70"> — {{ cert.issuer }}</span>
+              }
+              @if (cert.period) {
+                <span class="text-[var(--color-ink-soft)] dark:text-[var(--color-night-ink)]/60"> · {{ cert.period }}</span>
+              }
+            </li>
+          }
+        </ul>
+      </div>
+
+      <div appReveal>
+        <h3 class="font-[family-name:var(--font-mono)] text-xs uppercase tracking-wide text-[var(--color-moss)] dark:text-[var(--color-terracotta)]">
+          Trainings &amp; workshops
+        </h3>
+        <ul class="mt-4 space-y-3">
+          @for (t of trainings; track t.title) {
+            <li class="text-sm leading-relaxed">
+              <span class="text-[var(--color-ink)] dark:text-[var(--color-night-ink)]">{{ t.title }}</span>
+              @if (t.issuer) {
+                <span class="text-[var(--color-ink-soft)] dark:text-[var(--color-night-ink)]/70"> — {{ t.issuer }}</span>
+              }
+            </li>
+          }
+        </ul>
+      </div>
+
+      <div appReveal>
+        <h3 class="font-[family-name:var(--font-mono)] text-xs uppercase tracking-wide text-[var(--color-moss)] dark:text-[var(--color-terracotta)]">
+          Publications
+        </h3>
+        <ul class="mt-4 space-y-3">
+          @for (pub of publications; track pub.title) {
+            <li class="text-sm leading-relaxed">
+              <span class="italic text-[var(--color-ink)] dark:text-[var(--color-night-ink)]">"{{ pub.title }}"</span>
+              <span class="block text-[var(--color-ink-soft)] dark:text-[var(--color-night-ink)]/70">{{ pub.detail }}</span>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <div appReveal>
+        <h3 class="font-[family-name:var(--font-mono)] text-xs uppercase tracking-wide text-[var(--color-moss)] dark:text-[var(--color-terracotta)]">
+          Memberships &amp; volunteering
+        </h3>
+        <ul class="mt-4 space-y-2">
+          @for (item of affiliations; track item) {
+            <li class="text-sm leading-relaxed text-[var(--color-ink-soft)] dark:text-[var(--color-night-ink)]/80">{{ item }}</li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

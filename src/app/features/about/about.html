@@ -1,0 +1,49 @@
+<section id="about" class="mx-auto max-w-5xl px-6 py-28 md:px-16">
+  <div appReveal class="grid gap-12 md:grid-cols-[1fr_1.4fr]">
+    <div class="flex justify-center md:justify-start">
+      <div
+        class="flex h-40 w-40 items-center justify-center rounded-full border-2 border-dashed border-[var(--color-moss)]/40 font-[family-name:var(--font-display)] text-4xl text-[var(--color-moss)] dark:text-[var(--color-terracotta)] md:h-48 md:w-48"
+      >
+        NM
+      </div>
+    </div>
+
+    <div>
+      <p class="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.3em] text-[var(--color-terracotta)]">
+        About
+      </p>
+      <h2 class="mt-3 font-[family-name:var(--font-display)] text-3xl font-medium tracking-tight md:text-4xl">
+        Field data first, models second.
+      </h2>
+      <p class="mt-6 text-[var(--color-ink-soft)] dark:text-[var(--color-night-ink)]/80 leading-relaxed">
+        I'm an energy and environmental engineer with hands-on experience in Scope 1 and 2 GHG
+        inventory, life-cycle assessment, and carbon credit project development. I combine
+        field-level ESG data collection with technical modelling in OpenLCA, QGIS, and Google
+        Earth Engine — having delivered a workflow framework for a state-wide waste management
+        programme and quantified facility-level emissions against ESG reporting frameworks. I'm
+        currently looking for a client-facing sustainability consulting role in GHG accounting,
+        BRSR readiness, or resource efficiency assessment.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-2">
+        @for (lang of languages; track lang) {
+          <span
+            class="rounded-full border border-[var(--color-ink)]/15 dark:border-[var(--color-night-ink)]/20 px-3 py-1 font-[family-name:var(--font-mono)] text-xs text-[var(--color-ink-soft)] dark:text-[var(--color-night-ink)]/70"
+          >
+            {{ lang }}
+          </span>
+        }
+      </div>
+    </div>
+  </div>
+
+  <div appReveal [revealDelay]="0.1" class="mt-16 grid gap-4 md:grid-cols-3">
+    @for (item of achievements; track item) {
+      <div class="rounded-2xl border border-[var(--color-ink)]/10 dark:border-[var(--color-night-ink)]/15 p-5">
+        <p class="text-sm leading-relaxed text-[var(--color-ink-soft)] dark:text-[var(--color-night-ink)]/80">
+          {{ item }}
+        </p>
+      </div>
+    }
+  </div>
+</section>

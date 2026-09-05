@@ -1,0 +1,48 @@
+<section id="contact" class="grain relative mx-auto max-w-3xl px-6 py-28 text-center md:px-16">
+  <div appReveal>
+    <p class="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.3em] text-[var(--color-terracotta)]">
+      Contact
+    </p>
+    <h2 class="mt-3 font-[family-name:var(--font-display)] text-3xl font-medium tracking-tight md:text-5xl">
+      Let's talk sustainability.
+    </h2>
+    <p class="mx-auto mt-5 max-w-md text-[var(--color-ink-soft)] dark:text-[var(--color-night-ink)]/80">
+      Open to client-facing consulting roles in GHG accounting, BRSR readiness, and resource
+      efficiency assessment.
+    </p>
+
+    <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+      <a
+        [href]="'mailto:' + contact.email"
+        class="inline-flex items-center gap-2 rounded-full bg-[var(--color-moss)] px-6 py-3 text-sm font-medium text-[var(--color-paper)] transition-transform hover:-translate-y-0.5"
+      >
+        <svg lucideMail [size]="16"></svg>
+        {{ contact.email }}
+      </a>
+      <a
+        [href]="contact.linkedin"
+        target="_blank"
+        rel="noopener"
+        class="inline-flex items-center gap-2 rounded-full border border-[var(--color-ink)]/20 dark:border-[var(--color-night-ink)]/25 px-6 py-3 text-sm font-medium transition-colors hover:border-[var(--color-terracotta)] hover:text-[var(--color-terracotta)]"
+      >
+        <svg lucideExternalLink [size]="16"></svg>
+        LinkedIn
+      </a>
+    </div>
+
+    <div class="mt-6 flex flex-wrap items-center justify-center gap-6 text-sm text-[var(--color-ink-soft)] dark:text-[var(--color-night-ink)]/70">
+      <span class="inline-flex items-center gap-1.5">
+        <svg lucidePhone [size]="14"></svg>
+        {{ contact.phone }}
+      </span>
+      <a [href]="contact.resumeUrl" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 hover:text-[var(--color-terracotta)]">
+        <svg lucideFileDown [size]="14"></svg>
+        Download résumé
+      </a>
+    </div>
+  </div>
+
+  <footer class="mt-24 font-[family-name:var(--font-mono)] text-xs text-[var(--color-ink-soft)] dark:text-[var(--color-night-ink)]/50">
+    © {{ year }} {{ contact.name }}
+  </footer>
+</section>
